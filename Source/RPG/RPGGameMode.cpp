@@ -2,6 +2,7 @@
 
 #include "RPGGameMode.h"
 #include "RPGCharacter.h"
+#include "UI/CharacterHUD.h"
 #include "UObject/ConstructorHelpers.h"
 
 ARPGGameMode::ARPGGameMode()
@@ -12,4 +13,5 @@ ARPGGameMode::ARPGGameMode()
 	{
 		DefaultPawnClass = PlayerPawnBPClass.Class;
 	}
+	HUDClass = ACharacterHUD::StaticClass();
 }
