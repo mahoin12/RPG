@@ -6,7 +6,7 @@
 #include "GameFramework/HUD.h"
 #include "CharacterHUD.generated.h"
 
-class UCharacterWidget;
+class UWB_Character;
 /**
  * 
  */
@@ -19,12 +19,12 @@ class RPG_API ACharacterHUD : public AHUD
 
 public:
 
-	FORCEINLINE UCharacterWidget* GetCharacterWidget() const {return CharacterWidget;}
+	FORCEINLINE UWB_Character* GetCharacterWidget() const {return CharacterWidget;}
 
 protected:
 
 	UPROPERTY()
-	UCharacterWidget* CharacterWidget;
+	UWB_Character* CharacterWidget;
 	
 	
 };

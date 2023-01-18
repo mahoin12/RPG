@@ -4,14 +4,14 @@
 
 #include "CoreMinimal.h"
 #include "Blueprint/UserWidget.h"
-#include "CharacterWidget.generated.h"
+#include "WB_Character.generated.h"
 
 class UProgressBar;
 /**
  * 
  */
 UCLASS()
-class RPG_API UCharacterWidget : public UUserWidget
+class RPG_API UWB_Character : public UUserWidget
 {
 	GENERATED_BODY()
 
@@ -20,11 +20,11 @@ public:
 protected:
 
 	UPROPERTY(meta=(BindWidget))
-	UProgressBar* HealthPB;
+	UProgressBar* PB_Health;
 	UPROPERTY(meta=(BindWidget))
-	UProgressBar* ManaPB;
+	UProgressBar* PB_Mana;
 	UPROPERTY(meta=(BindWidget))
-	UProgressBar* StaminaPB;
+	UProgressBar* PB_Stamina;
 
 private:
 	

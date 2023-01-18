@@ -2,14 +2,14 @@
 
 
 #include "CharacterHUD.h"
-#include "CharacterWidget.h"
+#include "WB_Character.h"
 
 ACharacterHUD::ACharacterHUD()
 {
-	static ConstructorHelpers::FClassFinder<UCharacterWidget> CharacterWidget_BP(TEXT("/Game/UI/CharacterWidget"));
+	static ConstructorHelpers::FClassFinder<UWB_Character> CharacterWidget_BP(TEXT("/Game/UI/WB_Character"));
 	if (!ensure(CharacterWidget_BP.Class != nullptr)) return;
 
-	CharacterWidget = CreateWidget<UCharacterWidget>(GetWorld(),CharacterWidget_BP.Class);
+	CharacterWidget = CreateWidget<UWB_Character>(GetWorld(),CharacterWidget_BP.Class);
 
 	if(CharacterWidget)
 		CharacterWidget->AddToViewport(0);
