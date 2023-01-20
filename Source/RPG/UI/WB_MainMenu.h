@@ -7,6 +7,8 @@
 #include "RPG/Interfaces/MenuInterface.h"
 #include "WB_MainMenu.generated.h"
 
+class UWidgetSwitcher;
+class UButton;
 /**
  * 
  */
@@ -21,9 +23,39 @@ public:
 
 	void SetMenuInterface(IMenuInterface* Interface);
 
+	void SetSlotActive(uint8 SlotIndex);
+	
+
 protected:
+	
+	UFUNCTION()
+	void LoadGamePanel();
+	UFUNCTION()
+	void MainPanel();
+	UFUNCTION()
+	void Quit();
+
+	
+	virtual void NativeConstruct() override;
 
 	// Define Interface
 	IMenuInterface* MenuInterface;
+
+	UPROPERTY(meta=(BindWidget))
+	UButton* LoadGameButton;
+	UPROPERTY(meta=(BindWidget))
+	UButton* LoadGameBackButton;
+	UPROPERTY(meta=(BindWidget))
+	UButton* QuitButton;
+	UPROPERTY(meta=(BindWidget))
+	UButton* Slot1;
+	UPROPERTY(meta=(BindWidget))
+	UButton* Slot2;
+	UPROPERTY(meta=(BindWidget))
+	UButton* Slot3;
+	UPROPERTY(meta=(BindWidget))
+	UButton* Slot4;
 	
+	UPROPERTY(meta=(BindWidget))
+	UWidgetSwitcher* MenuSwitcher;
 };

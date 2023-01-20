@@ -13,6 +13,13 @@ ARPGGameMode::ARPGGameMode()
 
 	// use our custom PlayerController class
 	PlayerControllerClass = ARPGPlayerController::StaticClass();
+
+	// set default controller to our Blueprinted controller
+	static ConstructorHelpers::FClassFinder<APlayerController> PlayerControllerBPClass(TEXT("/Game/ThirdPerson/Blueprints/BP_RPGPlayerController"));
+	if(PlayerControllerBPClass.Class != NULL)
+	{
+		PlayerControllerClass = PlayerControllerBPClass.Class;
+	}
 	
 	if(UGameplayStatics::GetCurrentLevelName(GetWorld(),true)=="MainMenu")
 	{

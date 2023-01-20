@@ -3,3 +3,8 @@
 
 #include "RPGPlayerController.h"
 
+ARPGPlayerController::ARPGPlayerController()
+{
+	DefaultMouseCursor = EMouseCursor::Default;
+	SetShowMouseCursor(true);
+}

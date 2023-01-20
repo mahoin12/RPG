@@ -24,6 +24,8 @@ public:
 	
 	void LoadMainMenu();
 
+	virtual void Quit();
+
 	virtual void CheckSaveGames();
 
 	virtual void SaveGame(FString SaveName);
