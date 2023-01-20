@@ -23,9 +23,19 @@ class RPG_API IMenuInterface
 	// Add interface functions to this class. This is the class that will be inherited to implement this interface.
 public:
 
+	UFUNCTION()
 	virtual void Quit() = 0;
 	
 	virtual void CheckSaveGames() = 0;
 
 	virtual void SaveGame(FString SaveName) = 0;
+
+	UFUNCTION()
+	virtual void NewGame() = 0;
+
+	UFUNCTION()
+	virtual void BackToGame() = 0;
+
+	UFUNCTION()
+	virtual void ToMainMenu() = 0;
 };

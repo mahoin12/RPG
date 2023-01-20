@@ -1,7 +1,6 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "RPGGameMode.h"
-#include "RPGCharacter.h"
 #include "RPGGameInstance.h"
 #include "RPGPlayerController.h"
 #include "Kismet/GameplayStatics.h"
