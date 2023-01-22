@@ -29,8 +29,6 @@ protected:
 	
 	UFUNCTION()
 	void MainPanel();
-	
-	virtual void NativeConstruct() override;
 
 	// Define Interface
 	IMenuInterface* MenuInterface;

@@ -19,19 +19,18 @@ ARPGGameMode::ARPGGameMode()
 	{
 		PlayerControllerClass = PlayerControllerBPClass.Class;
 	}
-	
-	if(UGameplayStatics::GetCurrentLevelName(GetWorld(),true)=="MainMenu")
+
+	if(GetWorld())
 	{
-		Cast<URPGGameInstance>(GetGameInstance())->CreateMenu();
-	}
-	else
-	{
-		// set default pawn class to our Blueprinted character
-		static ConstructorHelpers::FClassFinder<APawn> PlayerPawnBPClass(TEXT("/Game/ThirdPerson/Blueprints/BP_ThirdPersonCharacter"));
-		if (PlayerPawnBPClass.Class != NULL)
+		if(UGameplayStatics::GetCurrentLevelName(GetWorld(),true)!="MainMenu")
 		{
-			DefaultPawnClass = PlayerPawnBPClass.Class;
+			// set default pawn class to our Blueprinted character
+			static ConstructorHelpers::FClassFinder<APawn> PlayerPawnBPClass(TEXT("/Game/ThirdPerson/Blueprints/BP_ThirdPersonCharacter"));
+			if (PlayerPawnBPClass.Class != NULL)
+			{
+				DefaultPawnClass = PlayerPawnBPClass.Class;
+			}
+			HUDClass = ACharacterHUD::StaticClass();
 		}
-		HUDClass = ACharacterHUD::StaticClass();
 	}
 }

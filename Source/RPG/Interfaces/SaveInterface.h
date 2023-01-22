@@ -4,11 +4,11 @@
 
 #include "CoreMinimal.h"
 #include "UObject/Interface.h"
-#include "MenuInterface.generated.h"
+#include "SaveInterface.generated.h"
 
 // This class does not need to be modified.
 UINTERFACE(MinimalAPI)
-class UMenuInterface : public UInterface
+class USaveInterface : public UInterface
 {
 	GENERATED_BODY()
 };
@@ -16,22 +16,14 @@ class UMenuInterface : public UInterface
 /**
  * 
  */
-class RPG_API IMenuInterface
+class RPG_API ISaveInterface
 {
 	GENERATED_BODY()
 
 	// Add interface functions to this class. This is the class that will be inherited to implement this interface.
 public:
 
-	UFUNCTION()
-	virtual void Quit() = 0;
+	virtual void CheckSaveGames() = 0;
 
-	UFUNCTION()
-	virtual void EscapeMenuAction() = 0;
-
-	UFUNCTION()
-	virtual void NewGame() = 0;
-
-	UFUNCTION()
-	virtual void ToMainMenu() = 0;
+	virtual void SaveGame(FString SaveName) = 0;
 };
