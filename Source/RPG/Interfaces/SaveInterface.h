@@ -25,5 +25,5 @@ public:
 
 	virtual void CheckSaveGames() = 0;
 
-	virtual void SaveGame(FString SaveName) = 0;
+	virtual void SaveGame(FString SaveName, FString SlotName) = 0;
 };

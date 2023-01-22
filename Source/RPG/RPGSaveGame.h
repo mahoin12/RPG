@@ -3,10 +3,10 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "CharacterStats.h"
 #include "GameFramework/SaveGame.h"
 #include "RPGSaveGame.generated.h"
 
-enum class CharacterStats : uint8;
 /**
  * 
  */
@@ -15,11 +15,16 @@ class RPG_API URPGSaveGame : public USaveGame
 {
 	GENERATED_BODY()
 
-	FORCEINLINE CharacterStats GetCharacterStats() const { return CharacterStats; }
-	FORCEINLINE void SetCharacterStats(const CharacterStats Stats) { CharacterStats = Stats; }
+public:
+	
+	FORCEINLINE CharacterStats GetCharacterStats() const { return RPGCharacterStats; }
+	FORCEINLINE void SetCharacterStats(const CharacterStats Stats) { RPGCharacterStats = Stats; }
+	FORCEINLINE FString GetSaveGameName() const { return SaveGameName; }
+	FORCEINLINE void SetSaveGameName(const FString Val) { SaveGameName = Val; }
 	
 private:
+	
+	CharacterStats RPGCharacterStats;
 
-	UPROPERTY()
-	CharacterStats CharacterStats;
+	FString SaveGameName;
 };

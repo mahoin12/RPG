@@ -3,7 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Blueprint/UserWidget.h"
+#include "MenuBase.h"
 #include "WB_Escape.generated.h"
 
 class UButton;
@@ -12,25 +12,19 @@ class IMenuInterface;
  * 
  */
 UCLASS()
-class RPG_API UWB_Escape : public UUserWidget
+class RPG_API UWB_Escape : public UMenuBase
 {
 	GENERATED_BODY()
 
 public:
 
-	void Setup(IMenuInterface* Interface);
+	virtual void Setup(IMenuInterface* Interface) override;
 
 protected:
 
-	// Define Interface
-	IMenuInterface* MenuInterface;
-
-	UPROPERTY(meta=(BindWidget))
-	UButton* QuitButton;
-
 	UPROPERTY(meta=(BindWidget))
 	UButton* BackButton;
-
 	UPROPERTY(meta=(BindWidget))
 	UButton* MainMenuButton;
+	
 };

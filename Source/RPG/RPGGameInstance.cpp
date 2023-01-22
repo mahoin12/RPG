@@ -2,6 +2,7 @@
 
 
 #include "RPGGameInstance.h"
+#include "RPGSaveGame.h"
 #include "Kismet/GameplayStatics.h"
 #include "Logging/LogMacros.h"
 
@@ -14,7 +15,11 @@ void URPGGameInstance::CheckSaveGames()
 {
 	if(UGameplayStatics::DoesSaveGameExist("Slot1",0))
 	{
-		
+		URPGSaveGame* Slot1 = Cast<URPGSaveGame>(UGameplayStatics::LoadGameFromSlot("Slot1",0));
+		if(Slot1)
+		{
+			
+		}
 	}
 	if(UGameplayStatics::DoesSaveGameExist("Slot2",0))
 	{
@@ -30,8 +35,17 @@ void URPGGameInstance::CheckSaveGames()
 	}
 }
 
-void URPGGameInstance::SaveGame(FString SaveName)
+void URPGGameInstance::SaveGame(FString SaveName, FString SlotName)
 {
-	
+	URPGSaveGame* SavedGame;
+	if(UGameplayStatics::DoesSaveGameExist("SlotName",0))
+		SavedGame = Cast<URPGSaveGame>(UGameplayStatics::LoadGameFromSlot("SlotName",0));
+	else
+		SavedGame = Cast<URPGSaveGame>(UGameplayStatics::CreateSaveGameObject(URPGSaveGame::StaticClass()));
+	if(SavedGame)
+	{
+		SavedGame->SetCharacterStats(RPGCharacterStats);
+		SavedGame->SetSaveGameName(SaveName);
+	}
 }
 

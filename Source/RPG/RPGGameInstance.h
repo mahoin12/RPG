@@ -3,12 +3,12 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "CharacterStats.h"
 #include "Engine/GameInstance.h"
 #include "Interfaces/SaveInterface.h"
 #include "Interfaces/StatsInterface.h"
 #include "RPGGameInstance.generated.h"
 
-enum class CharacterStats : uint8;
 /**
  * 
  */
@@ -23,9 +23,9 @@ public:
 
 	virtual void CheckSaveGames() override;
 
-	virtual void SaveGame(FString SaveName) override;
+	virtual void SaveGame(FString SaveName, FString SlotName) override;
 
 private:
 
-	CharacterStats CharacterStats;
+	CharacterStats RPGCharacterStats;
 };

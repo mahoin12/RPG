@@ -4,41 +4,27 @@
 
 #include "CoreMinimal.h"
 #include "Blueprint/UserWidget.h"
-#include "WB_MainMenu.generated.h"
+#include "RPG/Interfaces/MenuInterface.h"
+#include "MenuBase.generated.h"
 
-class UWidgetSwitcher;
 class UButton;
-class IMenuInterface;
-//class IMenuInterface;
 /**
  * 
  */
 UCLASS()
-class RPG_API UWB_MainMenu : public UUserWidget
+class RPG_API UMenuBase : public UUserWidget
 {
 	GENERATED_BODY()
 
 public:
 
-	void Setup(IMenuInterface* Interface);
+	virtual void Setup(IMenuInterface* Interface);
 
 protected:
-	
-	UFUNCTION()
-	void LoadGamePanel();
-	
-	UFUNCTION()
-	void MainPanel();
 
 	// Define Interface
 	IMenuInterface* MenuInterface;
 
-	UPROPERTY(meta=(BindWidget))
-	UButton* LoadGameButton;
-	UPROPERTY(meta=(BindWidget))
-	UButton* LoadGameBackButton;
-	UPROPERTY(meta=(BindWidget))
-	UButton* NewGameButton;
 	UPROPERTY(meta=(BindWidget))
 	UButton* QuitButton;
 	UPROPERTY(meta=(BindWidget))
@@ -49,7 +35,4 @@ protected:
 	UButton* Slot3;
 	UPROPERTY(meta=(BindWidget))
 	UButton* Slot4;
-	
-	UPROPERTY(meta=(BindWidget))
-	UWidgetSwitcher* MenuSwitcher;
 };

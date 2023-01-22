@@ -2,15 +2,13 @@
 
 
 #include "WB_Escape.h"
-
 #include "Components/Button.h"
 #include "RPG/Interfaces/MenuInterface.h"
 
 
 void UWB_Escape::Setup(IMenuInterface* Interface)
 {
-	MenuInterface = Interface;
-	QuitButton->OnClicked.AddDynamic(MenuInterface, &IMenuInterface::Quit);
+	Super::Setup(Interface);
 	BackButton->OnClicked.AddDynamic(MenuInterface, &IMenuInterface::EscapeMenuAction);
 	MainMenuButton->OnClicked.AddDynamic(MenuInterface, &IMenuInterface::ToMainMenu);
 }

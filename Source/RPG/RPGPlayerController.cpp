@@ -5,8 +5,8 @@
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
 #include "Kismet/GameplayStatics.h"
-#include "UI/WB_Escape.h"
-#include "UI/WB_MainMenu.h"
+#include "UI/Menu/WB_Escape.h"
+#include "UI/Menu/WB_MainMenu.h"
 
 ARPGPlayerController::ARPGPlayerController()
 {

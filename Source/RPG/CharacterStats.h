@@ -1,7 +1,8 @@
 #pragma once
 
-UENUM(BlueprintType)
-enum class CharacterStats : uint8
+
+struct CharacterStats
 {
-	Strength		UMETA(DisplayName = "Strength")
+	uint8 Strength = 0;
+	uint8 Vitality = 0;
 };
