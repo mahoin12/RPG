@@ -6,6 +6,7 @@
 #include "UObject/Interface.h"
 #include "SaveInterface.generated.h"
 
+class UMenuBase;
 // This class does not need to be modified.
 UINTERFACE(MinimalAPI)
 class USaveInterface : public UInterface
@@ -23,7 +24,7 @@ class RPG_API ISaveInterface
 	// Add interface functions to this class. This is the class that will be inherited to implement this interface.
 public:
 
-	virtual void CheckSaveGames() = 0;
+	virtual void CheckSaveGames(UMenuBase* Menu) = 0;
 
 	virtual void SaveGame(FString SaveName, FString SlotName) = 0;
 };

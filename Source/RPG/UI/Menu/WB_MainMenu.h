@@ -6,9 +6,6 @@
 #include "MenuBase.h"
 #include "WB_MainMenu.generated.h"
 
-class UWidgetSwitcher;
-class UButton;
-class IMenuInterface;
 //class IMenuInterface;
 /**
  * 
@@ -20,23 +17,10 @@ class RPG_API UWB_MainMenu : public UMenuBase
 
 public:
 
-	virtual void Setup(IMenuInterface* Interface) override;
+	void Setup(IMenuInterface* IntemenuInterfacerface, ISaveInterface* saveInterface) override;
 
 protected:
 	
-	UFUNCTION()
-	void LoadGamePanel();
-	
-	UFUNCTION()
-	void MainPanel();
-
-	UPROPERTY(meta=(BindWidget))
-	UButton* LoadGameButton;
-	UPROPERTY(meta=(BindWidget))
-	UButton* LoadGameBackButton;
 	UPROPERTY(meta=(BindWidget))
 	UButton* NewGameButton;
-	
-	UPROPERTY(meta=(BindWidget))
-	UWidgetSwitcher* MenuSwitcher;
 };

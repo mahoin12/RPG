@@ -6,8 +6,7 @@
 #include "MenuBase.h"
 #include "WB_Escape.generated.h"
 
-class UButton;
-class IMenuInterface;
+class UEditableTextBox;
 /**
  * 
  */
@@ -18,13 +17,20 @@ class RPG_API UWB_Escape : public UMenuBase
 
 public:
 
-	virtual void Setup(IMenuInterface* Interface) override;
+	void Setup(IMenuInterface* menuInterface, ISaveInterface* saveInterface) override;
+	
+	UFUNCTION()
+	void SetAvaibleAllSlots(const FText& Text);
 
 protected:
-
+	
 	UPROPERTY(meta=(BindWidget))
 	UButton* BackButton;
+	
 	UPROPERTY(meta=(BindWidget))
 	UButton* MainMenuButton;
-	
+
+	UPROPERTY(meta=(BindWidget))
+	UEditableTextBox* SaveNameTextBox;
+
 };

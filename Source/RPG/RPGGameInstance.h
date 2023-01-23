@@ -21,7 +21,7 @@ public:
 
 	URPGGameInstance(const FObjectInitializer& ObjectInitializer);
 
-	virtual void CheckSaveGames() override;
+	virtual void CheckSaveGames(UMenuBase* Menu) override;
 
 	virtual void SaveGame(FString SaveName, FString SlotName) override;
 

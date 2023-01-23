@@ -4,6 +4,7 @@
 #include "RPGPlayerController.h"
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
+#include "RPGGameInstance.h"
 #include "Kismet/GameplayStatics.h"
 #include "UI/Menu/WB_Escape.h"
 #include "UI/Menu/WB_MainMenu.h"
@@ -59,7 +60,7 @@ void ARPGPlayerController::EscapeMenuAction()
 	if(!EscapeMenu)
 	{
 		EscapeMenu = CreateWidget<UWB_Escape>(GetWorld(),EscapeMenuClass);
-		EscapeMenu->Setup(this);
+		EscapeMenu->Setup(this,Cast<URPGGameInstance>(UGameplayStatics::GetGameInstance(GetWorld())));
 	}
 	if(EscapeMenu->IsInViewport())
 	{
@@ -79,7 +80,7 @@ void ARPGPlayerController::CreateMainMenu()
 	{
 		MainMenu = CreateWidget<UWB_MainMenu>(GetWorld(),MainMenuClass);
 		if (!ensure(MainMenu != nullptr)) return;
-		MainMenu->Setup(this);
+		MainMenu->Setup(this,Cast<URPGGameInstance>(UGameplayStatics::GetGameInstance(GetWorld())));
 	}
 	MainMenu->AddToViewport(0);
 	SetupInputMode(true);

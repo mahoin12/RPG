@@ -4,10 +4,13 @@
 
 #include "CoreMinimal.h"
 #include "Blueprint/UserWidget.h"
-#include "RPG/Interfaces/MenuInterface.h"
 #include "MenuBase.generated.h"
 
+class ISaveInterface;
+class IMenuInterface;
+class UWidgetSwitcher;
 class UButton;
+class UTextBlock;
 /**
  * 
  */
@@ -18,15 +21,31 @@ class RPG_API UMenuBase : public UUserWidget
 
 public:
 
-	virtual void Setup(IMenuInterface* Interface);
+	virtual void Setup(IMenuInterface* menuInterface, ISaveInterface* saveInterface);
+
+	void SetSlotName(uint8 SlotIndex, FString SlotName);
 
 protected:
 
-	// Define Interface
+	// Define Interfaces
 	IMenuInterface* MenuInterface;
+	ISaveInterface* SaveInterface;
+
+	UFUNCTION()
+	void SavePanel();
+	
+	UFUNCTION()
+	void MainPanel();
+
+	UPROPERTY(meta=(BindWidget))
+	UButton* SavePanelButton;
+
+	UPROPERTY(meta=(BindWidget))
+	UButton* BackToMenuButton;
 
 	UPROPERTY(meta=(BindWidget))
 	UButton* QuitButton;
+	
 	UPROPERTY(meta=(BindWidget))
 	UButton* Slot1;
 	UPROPERTY(meta=(BindWidget))
@@ -35,4 +54,15 @@ protected:
 	UButton* Slot3;
 	UPROPERTY(meta=(BindWidget))
 	UButton* Slot4;
+	UPROPERTY(meta=(BindWidget))
+	UTextBlock* Slot1Text;
+	UPROPERTY(meta=(BindWidget))
+	UTextBlock* Slot2Text;
+	UPROPERTY(meta=(BindWidget))
+	UTextBlock* Slot3Text;
+	UPROPERTY(meta=(BindWidget))
+	UTextBlock* Slot4Text;
+
+	UPROPERTY(meta=(BindWidget))
+	UWidgetSwitcher* MenuSwitcher;
 };

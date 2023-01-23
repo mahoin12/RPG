@@ -3,25 +3,13 @@
 
 #include "WB_MainMenu.h"
 #include "Components/Button.h"
-#include "Components/WidgetSwitcher.h"
 #include "RPG/Interfaces/MenuInterface.h"
 
 
-void UWB_MainMenu::Setup(IMenuInterface* Interface)
+void UWB_MainMenu::Setup(IMenuInterface* Interface, ISaveInterface* saveInterface)
 {
-	Super::Setup(Interface);
+	Super::Setup(Interface, saveInterface);
 	NewGameButton->OnClicked.AddDynamic(MenuInterface, &IMenuInterface::NewGame);
-	LoadGameButton->OnClicked.AddDynamic(this, &UWB_MainMenu::LoadGamePanel);
-	LoadGameBackButton->OnClicked.AddDynamic(this, &UWB_MainMenu::MainPanel);
 }
 
-void UWB_MainMenu::LoadGamePanel()
-{
-	MenuSwitcher->SetActiveWidgetIndex(1);
-}
-
-void UWB_MainMenu::MainPanel()
-{
-	MenuSwitcher->SetActiveWidgetIndex(0);
-}
 

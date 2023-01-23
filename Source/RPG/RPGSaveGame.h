@@ -25,6 +25,6 @@ public:
 private:
 	
 	CharacterStats RPGCharacterStats;
-
+	
 	FString SaveGameName;
 };
